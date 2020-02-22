@@ -18,6 +18,10 @@ namespace OOP_1
             ClimateZone zoneFromBuilder = creator.Create(builder);
             zoneFromBuilder.HearBear();
 
+            Bear bear = new PolarBear(12);
+            Bear clonedBear = bear.Clone();
+            Console.WriteLine(clonedBear.Age);
+
             Console.ReadKey();
         }
     }
