@@ -14,7 +14,7 @@ namespace OOP_1
             earth.EarthShake();
 
             TheCreator creator = new TheCreator();
-            ClimateZoneBuilder builder = new MildZoneBuilder();
+            ClimateZoneBuilder builder = new OldPolarZoneBuilder();
             ClimateZone zoneFromBuilder = creator.Create(builder);
             zoneFromBuilder.HearBear();
 

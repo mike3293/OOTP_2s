@@ -34,7 +34,7 @@ namespace OOP_1
     {
         public override void SetBear()
         {
-            ClimateZone.SetBear(new PolarBear());
+            ClimateZone.SetBear(new PolarBear(0));
         }
         public override void SetFox()
         {
@@ -43,15 +43,15 @@ namespace OOP_1
 
     }
 
-    internal class MildZoneBuilder : ClimateZoneBuilder
+    internal class OldPolarZoneBuilder : ClimateZoneBuilder
     {
         public override void SetBear()
         {
-            ClimateZone.SetBear(new BrownBear());
+            ClimateZone.SetBear(new PolarBear(10));
         }
         public override void SetFox()
         {
-            ClimateZone.SetFox(new CommonFox());
+            ClimateZone.SetFox(new PolarFox());
         }
     }
 }
