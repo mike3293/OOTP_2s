@@ -56,29 +56,17 @@ namespace OOP_2
 
         public override string Search(string itemName)
         {
-            string result = "";
-
             for (int i = 0; i < components.Count; i++)
             {
-                foreach (Item item in (components[i] as Box).components)
+                if (components[i].GetName() == itemName)
                 {
-                    if (components[i].GetName() == itemName)
-                    {
-                        result = "item found";
-                    }
-                    if (item.GetName() == itemName)
-                    {
-                        result = "item found";
-                    }
+                    return "item found";
                 }
+
+                if((components[i] as Box)?.Search(itemName) == "item found") return "item found";
             }
 
-            if (result == "")
-            {
-                result = "item not found";
-            }
-
-            return result;
+            return "item not found";
         }
 
         public override string Print()
