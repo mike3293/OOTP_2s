@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -48,36 +49,32 @@ namespace OOP_5
                     Street = textBox5.Text,
                     Home = int.Parse(textBox6.Text),
                     Apartment = int.Parse(textBox7.Text)
-                }
+                },
+                AdditionalRooms = new List<string>()
             };
-            currentHouse.Price = decimal.ToInt32(currentHouse.Rooms) * 10000 - currentHouse.Floor * 54;
-            building.Houses.Add(currentHouse);
-            currentHouse.Result = currentHouse.Address.Street + ": " + currentHouse.Rooms + "-комн., " +
-                currentHouse.Floor + " этаж, " + currentHouse.Material + ", " +
-                currentHouse.Meter + " кв.м";
+            
             if (checkBox1.Checked)
             {
-                currentHouse.Result += " + кухня";
+                currentHouse.AdditionalRooms.Add("кухня");
             }
 
             if (checkBox2.Checked)
             {
-                currentHouse.Result += " + ванная";
+                currentHouse.AdditionalRooms.Add("ванная");
             }
 
             if (checkBox3.Checked)
             {
-                currentHouse.Result += " + балкон";
+                currentHouse.AdditionalRooms.Add("балкон");
             }
 
             if (checkBox4.Checked)
             {
-                currentHouse.Result += " + туалет";
+                currentHouse.AdditionalRooms.Add("туалет");
             }
 
-            currentHouse.Result += "\r\nЦена: " + currentHouse.Price + " $";
-
-            listBox1.Items.Add(currentHouse.Result);
+            building.Houses.Add(currentHouse);
+            listBox1.Items.Add(currentHouse.ToString());
         }
 
         private void SerializeBuilding(object sender, EventArgs e)
@@ -98,7 +95,7 @@ namespace OOP_5
             }
             foreach (House house in building.Houses)
             {
-                listBox1.Items.Add(house.Result);
+                listBox1.Items.Add(house.ToString());
             }
         }
 
