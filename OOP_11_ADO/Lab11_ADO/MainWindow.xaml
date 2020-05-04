@@ -1,0 +1,61 @@
+﻿<Window x:Class="Lab11_ADO.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab11_ADO"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="747.418" Width="1492.126">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="0,0,-0.4,-145.4">
+            <StackPanel Margin="25" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <ListView ItemsSource="{Binding PlanetList,Mode=TwoWay}" SelectedItem="{Binding SelectedPlanet, Mode=TwoWay}"  
+                           HorizontalAlignment="Right" Name="Planets"
+                           Foreground="Black"
+                           MaxHeight="250" MinHeight="250"
+                           FontSize="25" Padding="3">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="30" Header="Id" DisplayMemberBinding="{Binding ID}" />
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" />
+                            <GridViewColumn Header="Radius"  DisplayMemberBinding="{Binding Radius}" />
+                            <GridViewColumn Header="Temperature" DisplayMemberBinding="{Binding Temperature}" />
+                            <GridViewColumn Header="IsLife" DisplayMemberBinding="{Binding IsLife}" />
+                            <GridViewColumn Header="IsAtmosphere" DisplayMemberBinding="{Binding IsAtmosphere}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Grid Width="50"></Grid>
+                <ListView ItemsSource="{Binding SatelliteList,Mode=TwoWay}"  
+                           HorizontalAlignment="Right" Name="Satellite"
+                           Foreground="Black"
+                           MaxHeight="250" MinHeight="250"
+                           FontSize="25" Padding="3">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="30" Header="Id" DisplayMemberBinding="{Binding id}" />
+                            <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" />
+                            <GridViewColumn Header="Radius"  DisplayMemberBinding="{Binding Radius}" />
+                            <GridViewColumn Header="Distance_to_Planet" DisplayMemberBinding="{Binding Distance_to_Planet}" />
+                            <GridViewColumn Header="PlanetName" DisplayMemberBinding="{Binding PlanetName}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="Change" Click="Button_Click" Margin="20 0" Height="40"></Button>
+                <Grid Width="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="79*"/>
+                        <RowDefinition Height="46*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Button Content="Sort" Width="50" Click="Button_Click_1" Height="40"></Button>
+            </StackPanel>
+            <TextBox Name="desc" FontSize="25" Margin="40"></TextBox>
+            <StackPanel Orientation="Horizontal" Margin="1175,0,0,0">
+                <Button Content="Add" Width="100" Margin="20 0" Click="Button_Click_2"></Button>
+                <Button Content="Update" Width="100" Click="Button_Click_3"></Button>
+            </StackPanel>
+            <TextBlock Name="txt"  FontSize="25" Margin="40" Height="93"></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,62 @@
+﻿<Window x:Class="Lab_7_8.AddNewTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        FontSize="35"
+        WindowStartupLocation="CenterScreen"
+        Title="Add new task" Height="529.5" Width="400">
+    <Grid Height="570" VerticalAlignment="Top" >
+        <StackPanel Orientation="Vertical" Margin="15,15,15,0" Height="477" VerticalAlignment="Top">
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="15" Content="Title"></Label>
+                    <TextBox Name="Title" FontSize="25" />
+                </StackPanel>
+            </Grid>
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="15" Content="Category"></Label>
+                    <TextBox Name="Category" FontSize="25"/>
+                </StackPanel>
+            </Grid>
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="15" Content="Priority"></Label>
+                    <ComboBox VerticalAlignment="Top" Name="Priority" FontSize="25">
+                        <TextBlock>High</TextBlock>
+                        <TextBlock>Medium</TextBlock>
+                        <TextBlock>Low</TextBlock>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="15" Content="Status"></Label>
+                    <ComboBox VerticalAlignment="Top" Name="Status" FontSize="25">
+                        <TextBlock>Complete</TextBlock>
+                        <TextBlock>Delay</TextBlock>
+                        <TextBlock>In process</TextBlock>
+                    </ComboBox>
+                </StackPanel>
+            </Grid>
+
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <Label FontSize="15" Content="Description"></Label>
+                    <TextBox Name="Description" Height="100" FontSize="25"/>
+                </StackPanel>
+            </Grid>
+            <Grid Margin="0,20" Width="362">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Button Margin="2,0,0,0" Padding="2" Content="Accept" Click="Button_Click_1"/>
+                <Button Padding="2" Grid.Column="1" Content="Cancel" Click="Button_Click" Grid.ColumnSpan="2" Margin="158,0,4,0"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
